@@ -65,21 +65,21 @@
                 <div class="input-group f-class">
                     <div>
                         <label for="">First Class ($150)</label>
-                        <input class="inp-style inp-width" id="FC_Input" type="number" value="0" name="">
+                        <input class="inp-style inp-width" id="FC-input" type="number" value="0" name="">
                     </div>
                     <div class="plus-minus-btn">
-                        <p id="FC_TicketAdd">+</p>
-                        <p id="FC_TicketRemove">-</p>
+                        <p id="FC-ticketAdd">+</p>
+                        <p id="FC-ticketRemove">-</p>
                     </div>
                 </div>
                 <div class="input-group f-class">
                     <div>
                         <label for="">Economy ($100)</label>
-                        <input class="inp-style inp-width" id="EC_Input" type="number" value="0" name="">
+                        <input class="inp-style inp-width" id="EC-input" type="number" value="0" name="">
                     </div>
                     <div class="plus-minus-btn">
-                        <p id="EC_TicketAdd">+</p>
-                        <p id="EC_TicketRemove">-</p>
+                        <p id="EC-ticketAdd">+</p>
+                        <p id="EC-ticketRemove">-</p>
                     </div>
                 </div>
 
@@ -115,35 +115,48 @@
             <button class="btn-style">Book Now</button>
         </div>
     </main>
-
     <script>
+        document.getElementById("FC-ticketAdd").addEventListener("click", function () {
+            // const getInput = document.getElementById("FC-input");
+            // let TicketAmount = parseInt(getInput.value) + 1;
+            // document.getElementById("FC-input").value = TicketAmount;
+            TicketBtnHandel("FC-input", true);
+        });
+        document.getElementById("FC-ticketRemove").addEventListener("click", function () {
+            // const getInput = document.getElementById("FC-input");
+            // let TicketAmount = parseInt(getInput.value) - 1;
+            // if (TicketAmount >= 0) {
+            //     document.getElementById("FC-input").value = TicketAmount;
+            // }
+            TicketBtnHandel("FC-input",false);
+        });
+        document.getElementById("EC-ticketAdd").addEventListener("click", function () {
+            // const getInput = document.getElementById("EC-input");
+            // let TicketAmount = parseInt(getInput.value) + 1;
+            // document.getElementById("EC-input").value = TicketAmount;
+            TicketBtnHandel("EC-input", true);
+        });
+        document.getElementById("EC-ticketRemove").addEventListener("click", function () {
+            // const getInput = document.getElementById("EC-input");
+            // let TicketAmount = parseInt(getInput.value) - 1;
+            // if (TicketAmount >= 0) {
+            //     document.getElementById("EC-input").value = TicketAmount;
+            // }
+            TicketBtnHandel("EC-input", false);
+        });
+        function TicketBtnHandel(inputId, isIncrease) {
+            const getInput = document.getElementById(inputId);
+            let input = parseInt(getInput.value);
+            let ticketAmount = input;
+            if (isIncrease == true) {
+                ticketAmount = input + 1;
+            }
+            if (isIncrease == false && input > 0) {
+                ticketAmount = input - 1;
+            }
+            document.getElementById(inputId).value = ticketAmount;
+        }
 
-        document.getElementById("FC_TicketAdd").addEventListener("click", function () {
-            const getInput = document.getElementById("FC_Input");
-            let TicketAmount = parseInt(getInput.value) + 1;
-            document.getElementById("FC_Input").value = TicketAmount;
-            
-         })
-
-        document.getElementById("FC_TicketRemove").addEventListener("click", function () {
-            const getInput = document.getElementById("FC_Input");
-            let TicketAmount = parseInt(getInput.value) - 1;
-            if(TicketAmount >= 0){
-                document.getElementById("FC_Input").value = TicketAmount;
-            }     
-        })
-        document.getElementById("EC_TicketAdd").addEventListener("click", function () {
-            const getInput = document.getElementById("EC_Input");
-            let TicketAmount = parseInt(getInput.value) + 1;
-            document.getElementById("EC_Input").value = TicketAmount;
-        })
-        document.getElementById("EC_TicketRemove").addEventListener("click", function () {
-            const getInput = document.getElementById("EC_Input");
-            let TicketAmount = parseInt(getInput.value) - 1;
-            if(TicketAmount >= 0){
-                document.getElementById("EC_Input").value = TicketAmount;
-            }  
-        })
     </script>
 
 
