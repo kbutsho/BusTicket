@@ -68,8 +68,8 @@
                         <input class="inp-style inp-width" id="FC_Input" type="number" value="0" name="">
                     </div>
                     <div class="plus-minus-btn">
-                        <span id="FC_TicketAdd">+</span>
-                        <span id="FC_TicketRemove">-</span>
+                        <p id="FC_TicketAdd">+</p>
+                        <p id="FC_TicketRemove">-</p>
                     </div>
                 </div>
                 <div class="input-group f-class">
@@ -78,8 +78,8 @@
                         <input class="inp-style inp-width" id="EC_Input" type="number" value="0" name="">
                     </div>
                     <div class="plus-minus-btn">
-                        <span id="EC_TicketAdd">+<span>
-                                <span id="EC_TicketRemove">-<span>
+                        <p id="EC_TicketAdd">+</p>
+                        <p id="EC_TicketRemove">-</p>
                     </div>
                 </div>
 
@@ -119,29 +119,31 @@
     <script>
 
         document.getElementById("FC_TicketAdd").addEventListener("click", function () {
-            ticketHandel("FC_Input",true);
-        })
+            const getInput = document.getElementById("FC_Input");
+            let TicketAmount = parseInt(getInput.value) + 1;
+            document.getElementById("FC_Input").value = TicketAmount;
+            
+         })
+
         document.getElementById("FC_TicketRemove").addEventListener("click", function () {
-            ticketHandel("FC_Input",false);
+            const getInput = document.getElementById("FC_Input");
+            let TicketAmount = parseInt(getInput.value) - 1;
+            if(TicketAmount >= 0){
+                document.getElementById("FC_Input").value = TicketAmount;
+            }     
         })
         document.getElementById("EC_TicketAdd").addEventListener("click", function () {
-            ticketHandel("EC_Input",true);
+            const getInput = document.getElementById("EC_Input");
+            let TicketAmount = parseInt(getInput.value) + 1;
+            document.getElementById("EC_Input").value = TicketAmount;
         })
         document.getElementById("EC_TicketRemove").addEventListener("click", function () {
-            ticketHandel("EC_Input",false);    
+            const getInput = document.getElementById("EC_Input");
+            let TicketAmount = parseInt(getInput.value) - 1;
+            if(TicketAmount >= 0){
+                document.getElementById("EC_Input").value = TicketAmount;
+            }  
         })
-        function ticketHandel(Input_Id,Is_Increase) {
-            const getInput = document.getElementById(Input_Id);
-            let TicketAmount = 0;
-            if (Is_Increase == true) {
-                TicketAmount = parseInt(getInput.value) + 1;
-            }
-            document.getElementById(Input_Id).value = TicketAmount;
-            if (Is_Increase == false && Input_Id > 0) {
-                TicketAmount = parseInt(getInput.value) - 1;
-            }
-            document.getElementById(Input_Id).value = TicketAmount; 
-        }
     </script>
 
 
