@@ -1,63 +1,64 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     text-decoration: none;
     list-style-type: none;
 }
-body{
+body {
     font-family: 'Roboto', sans-serif;
-    background:url("images/bus.png");
+    background: url("images/bus.png");
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: scroll;
     background-size: cover;
     min-height: 100vh;
 }
-nav{
+nav {
     height: 50px;
     width: 100%;
     padding: 20px 0;
 }
-.container{
+.container {
     width: 1200px;
     max-width: 85%;
     margin: 0 auto;
 }
-nav ul{
+nav ul {
     display: flex;
     justify-content: flex-end;
     margin: 0px 6px;
 }
-nav ul li a{
+nav ul li a {
     color: #fff;
     padding: 10px;
     text-transform: uppercase;
     margin-left: 30px;
 }
-nav ul li a:hover, a.active{
+nav ul li a:hover,
+a.active {
     background-color: #52AF3A;
     border-radius: 5px;
 }
-.main-content{
+.main-content {
     display: grid;
     grid-template-columns: 2fr 3fr;
     gap: 70px;
     align-items: center;
 }
-.booking-content{
+.booking-content {
     color: #fff;
     width: 100%;
     float: left;
     margin-left: 50px;
 }
-.booking-content h1{
+.booking-content h1 {
     font-size: 70px;
     text-transform: uppercase;
     font-family: 'Bebas Neue', cursive;
     font-weight: 500;
 }
-.booking-form{
+.booking-form {
     background-color: #fff;
     border: 1px solid #ddd;
     padding: 10px;
@@ -66,20 +67,20 @@ nav ul li a:hover, a.active{
     width: 80%;
     margin: 50px 0px 0px 80px;
 }
-.booking-form h3{
+.booking-form h3 {
     margin: 10px 0px;
 }
-.booking-form  .input-group{
+.booking-form .input-group {
     margin: 10px 0;
 }
-.booking-form  .calculations{
+.booking-form .calculations {
     margin: 10px 0;
 }
-.booking-form  .calculations p{
+.booking-form .calculations p {
     font-weight: 500;
     margin-bottom: 10px;
 }
-.booking-form input{
+.booking-form input {
     width: 100%;
     display: block;
     padding: 10px;
@@ -89,20 +90,20 @@ nav ul li a:hover, a.active{
     border-radius: 4px;
     margin: 10px 0;
 }
-.booking-form .inputs{
+.booking-form .inputs {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
 }
-.f-class{
+.f-class {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.inp-width{
+.inp-width {
     min-width: 100px;
 }
-.plus-minus-btn{
+.plus-minus-btn {
     color: #3352F2;
     font-size: 30px;
     padding: 2px;
@@ -110,7 +111,7 @@ nav ul li a:hover, a.active{
     word-spacing: 20px;
     cursor: pointer;
 }
-.btn-style{
+.btn-style {
     display: block;
     width: 100%;
     padding: 10px;
@@ -118,33 +119,33 @@ nav ul li a:hover, a.active{
     border: none;
     color: #fff;
     font-weight: 500;
-    background-color:  #52AF3A;
+    background-color: #52AF3A;
     cursor: pointer;
 }
-.amount{
+.amount {
     display: flex;
     justify-content: space-between;
 }
-i{
+i {
     font-size: 26px;
-    background-color: white;   
+    background-color: white;
 }
-.add{
+.add {
     color: green;
 }
-.remove{
-    color: red;;
+.remove {
+    color: red;
+    
 }
-#order-section{
+#order-section {
     display: none;
 }
-#order-section .box{
+#order-section .box {
     display: flex;
     justify-content: center;
     align-items: center;
-   
 }
-.content-area{
+.content-area {
     width: 30%;
     height: 520px;
     background-color: turquoise;
@@ -159,24 +160,25 @@ i{
     border-radius: 20px;
     height: 80px;
 }
-.content-area .heading-area h1{
+.content-area .heading-area h1 {
     color: red;
 }
-.content-area .heading-area h4{
+.content-area .heading-area h4 {
     padding: 20px 0;
 }
-.highlight{
+.highlight {
     color: red;
     font-weight: bold;
 }
-.details-area{
+.details-area {
     margin: 20px 0;
 }
-.travel-info{
+.travel-info {
     margin: 20px 0;
 }
-.ticket-info{
+.ticket-info {
     margin: 20px 0;
 }
-    
-
+.hr {
+    margin: 20px 0;
+}
