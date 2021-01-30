@@ -25,21 +25,16 @@
             </ul>
         </nav>
     </header>
-
     <!--Booking Section-->
     <main class="main-content container">
-
         <div class="booking-content">
             <h1>Mega City Bus</h1>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
                 industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
                 scrambled it to make a type specimen book.</p>
         </div>
-
-
         <div class="booking-form">
             <h3>Explore By Bus</h3>
-
             <div class="inputs">
                 <div class="input-group">
                     <label" for="">From</label>
@@ -50,7 +45,6 @@
                         <input class="inp-style" type="text" name="" placeholder="Chittagone">
                 </div>
             </div>
-
             <div class="inputs">
                 <div class="input-group">
                     <label" for="">Departure</label>
@@ -68,8 +62,8 @@
                         <input class="inp-style inp-width" id="FC-input" type="number" value="0" name="">
                     </div>
                     <div class="plus-minus-btn">
-                        <p id="FC-ticketAdd">+</p>
-                        <p id="FC-ticketRemove">-</p>
+                        <p id="FC-ticketAdd" onclick='TicketBtnHandel("FC-input", true)'>+</p>
+                        <p id="FC-ticketRemove" onclick='TicketBtnHandel("FC-input", false)'>-</p>
                     </div>
                 </div>
                 <div class="input-group f-class">
@@ -78,11 +72,10 @@
                         <input class="inp-style inp-width" id="EC-input" type="number" value="0" name="">
                     </div>
                     <div class="plus-minus-btn">
-                        <p id="EC-ticketAdd">+</p>
-                        <p id="EC-ticketRemove">-</p>
+                        <p id="EC-ticketAdd" onclick='TicketBtnHandel("EC-input", true)'>+</p>
+                        <p id="EC-ticketRemove" onclick='TicketBtnHandel("EC-input", false)'>-</p>
                     </div>
                 </div>
-
             </div>
             <div class="calculations">
                 <div class="amount">
@@ -90,16 +83,15 @@
                         <p>Subtotal</p>
                     </div>
                     <div class="right">
-                        <p>$500</p>
+                        <p>$ <span id="subTotal-input">500</span> </p>
                     </div>
                 </div>
-
                 <div class="amount">
                     <div class="left">
                         <p>Charge 10% VAT</p>
                     </div>
                     <div class="right">
-                        <p>$50</p>
+                        <p>$ <span id="vat-input">50</span></p>
                     </div>
                 </div>
                 <hr>
@@ -108,7 +100,7 @@
                         <h4>Total</h4>
                     </div>
                     <div class="right">
-                        <p>$550</p>
+                        <p>$ <span id="total-input">550</span></p>
                     </div>
                 </div>
             </div>
@@ -116,50 +108,52 @@
         </div>
     </main>
     <script>
-        document.getElementById("FC-ticketAdd").addEventListener("click", function () {
-            // const getInput = document.getElementById("FC-input");
-            // let TicketAmount = parseInt(getInput.value) + 1;
-            // document.getElementById("FC-input").value = TicketAmount;
-            TicketBtnHandel("FC-input", true);
-        });
-        document.getElementById("FC-ticketRemove").addEventListener("click", function () {
-            // const getInput = document.getElementById("FC-input");
-            // let TicketAmount = parseInt(getInput.value) - 1;
-            // if (TicketAmount >= 0) {
-            //     document.getElementById("FC-input").value = TicketAmount;
-            // }
-            TicketBtnHandel("FC-input",false);
-        });
-        document.getElementById("EC-ticketAdd").addEventListener("click", function () {
-            // const getInput = document.getElementById("EC-input");
-            // let TicketAmount = parseInt(getInput.value) + 1;
-            // document.getElementById("EC-input").value = TicketAmount;
-            TicketBtnHandel("EC-input", true);
-        });
-        document.getElementById("EC-ticketRemove").addEventListener("click", function () {
-            // const getInput = document.getElementById("EC-input");
-            // let TicketAmount = parseInt(getInput.value) - 1;
-            // if (TicketAmount >= 0) {
-            //     document.getElementById("EC-input").value = TicketAmount;
-            // }
-            TicketBtnHandel("EC-input", false);
-        });
+        // document.getElementById("FC-ticketAdd").addEventListener("click", function () {
+        //     TicketBtnHandel("FC-input", true);
+        // });
+        // document.getElementById("FC-ticketRemove").addEventListener("click", function () {
+        //     TicketBtnHandel("FC-input", false);
+        // });
+        // document.getElementById("EC-ticketAdd").addEventListener("click", function () {
+        //     TicketBtnHandel("EC-input", true);
+        // });
+        // document.getElementById("EC-ticketRemove").addEventListener("click", function () {
+        //     TicketBtnHandel("EC-input", false);
+        // });
         function TicketBtnHandel(inputId, isIncrease) {
             const getInput = document.getElementById(inputId);
-            let input = parseInt(getInput.value);
-            let ticketAmount = input;
+            let ticketInput = parseInt(getInput.value);
+            let ticketAmount = ticketInput;
             if (isIncrease == true) {
-                ticketAmount = input + 1;
+                ticketAmount = ticketInput + 1;
             }
-            if (isIncrease == false && input > 0) {
-                ticketAmount = input - 1;
+            if (isIncrease == false && ticketInput > 0) {
+                ticketAmount = ticketInput - 1;
             }
             document.getElementById(inputId).value = ticketAmount;
+            PriceCalculate()
         }
-
+        function PriceCalculate() {
+            var getFC_ticketInput = document.getElementById("FC-input").value;
+            var FC_ticketAmount = parseInt(getFC_ticketInput);
+            var getEC_ticketInput = document.getElementById("EC-input").value;
+            var EC_ticketAmount = parseInt(getEC_ticketInput);
+            // SubTotal Calculation
+            var getSubTotal = FC_ticketAmount * 150 + EC_ticketAmount * 100;
+            var subTotal = parseFloat(getSubTotal);
+            subTotal = subTotal.toFixed(2);
+            document.getElementById("subTotal-input").innerText = subTotal;
+            // vat Calculation
+            var getVat = subTotal * 0.1;
+            var vat = parseFloat(getVat);
+            vat = vat.toFixed(2);
+            document.getElementById("vat-input").innerText = vat;
+            // Total calculation
+            var getTotal = parseFloat(subTotal) + parseFloat(vat);
+            var total = getTotal.toFixed(2);
+            document.getElementById("total-input").innerText = total;
+        }
     </script>
-
-
 </body>
 
 </html>
