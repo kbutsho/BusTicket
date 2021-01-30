@@ -9,117 +9,169 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap"
         rel="stylesheet">
+        
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
+    <!-- font Awesome -->
+    <script src="https://kit.fontawesome.com/5301593776.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <!--Header and Menu Section-->
-    <header class="container">
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a class="active" href="#">Sign Up</a></li>
-            </ul>
-        </nav>
-    </header>
-    <!--Booking Section-->
-    <main class="main-content container">
-        <div class="booking-content">
-            <h1>Mega City Bus</h1>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-                scrambled it to make a type specimen book.</p>
+        <header class="container">
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a class="active" href="#">Sign Up</a></li>
+                </ul>
+            </nav>
+        </header>
+        <!--Booking Section-->
+        <main class="main-content container" id="booking-section">
+            <div class="booking-content">
+                <h1>Mega City Bus</h1>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+                    scrambled it to make a type specimen book.</p>
+            </div>
+            <div class="booking-form">
+                <h3>Explore By Bus</h3>
+                <div class="inputs">
+                    <div class="input-group">
+                        <label" for="">From</label>
+                            <input class="inp-style" type="text" name="" placeholder="Dhaka"  id="from-input">
+                    </div>
+                    <div class="input-group">
+                        <label" for="">To</label>
+                            <input class="inp-style" type="text" name="" placeholder="Chittagong"
+                            id="to-input">
+                    </div>
+                </div>
+                <div class="inputs">
+                    <div class="input-group">
+                        <label" for="">Departure</label>
+                            <input class="inp-style" type="date" name="" id="departure-input">
+                    </div>
+                    <div class="input-group">
+                        <label for="">Return</label>
+                        <input class="inp-style" type="date" name="" id="return-input">
+                    </div>
+                </div>
+                <div class="inputs">
+                    <div class="input-group f-class">
+                        <div>
+                            <label for="">First Class ($150)</label>
+                            <input class="inp-style inp-width" id="FC-input" type="number" value="0" name="">
+                        </div>
+                        <div class="plus-minus-btn">
+                            <span class="add" onclick='TicketBtnHandel("FC-input", true)'><i class="fas fa-plus-square"></i></span>
+                            <span class="remove" onclick='TicketBtnHandel("FC-input", false)'><i class="fas fa-minus-square"></i></span>
+                        </div>
+                    </div>
+                    <div class="input-group f-class">
+                        <div>
+                            <label for="">Economy ($100)</label>
+                            <input class="inp-style inp-width" id="EC-input" type="number" value="0" name="">
+                        </div>
+                        <div class="plus-minus-btn">
+                            <span class="add" onclick='TicketBtnHandel("EC-input", true)'><i class="fas fa-plus-square"></i></span>
+                            <span class="remove" onclick='TicketBtnHandel("EC-input", false)'><i class="fas fa-minus-square"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="calculations">
+                    <div class="amount">
+                        <div class="left">
+                            <p>Subtotal</p>
+                        </div>
+                        <div class="right">
+                            <p>$ <span id="subTotal-input">0.00</span> </p>
+                        </div>
+                    </div>
+                    <div class="amount">
+                        <div class="left">
+                            <p>Charge 10% VAT</p>
+                        </div>
+                        <div class="right">
+                            <p>$ <span id="vat-input">0.00</span></p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="amount">
+                        <div class="left">
+                            <h4>Total</h4>
+                        </div>
+                        <div class="right">
+                            <p>$ <span id="total-input">0.00</span></p>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-style" id="buyNowBtn">Book Now</button>
+            </div>
+        </main>
+        <div id="order-section">
+            <div class="box">
+                <div class="content-area">
+                    <div class="heading-area">
+                        <h1 class="text-center">Congratulation !!</h1>
+                        <h2>Your Ticket has been confirmed !!</h2>
+                    </div>
+                    <div class="details-area">
+                        <h2 class="travel-info highlight">Travel Information : </h2>
+                        <h3>From : <span class="highlight" id="from">Dhaka</span></h3>
+                        <h3>To : <span class="highlight" id="to">  Chittagong</span> </h3>
+                        <h3>Departure Date : <span class="highlight" id="departure"></span></h3>
+                        <h3>Return Date : <span class="highlight" id="return"></span></h3>
+                        <h2 class="ticket-info highlight">Ticket Information : </h2>
+                        <div class="amount">
+                            <div class="left">
+                                <h3>Total : </h3>
+                            </div>
+                            <div class="right">
+                                <h3 class="highlight">$ <span id="showTotal"></span></h3>
+                            </div>
+                        </div>
+                        <div class="amount">
+                            <div class="left">
+                                <h3>10% VAT : </h3>
+                            </div>
+                            <div class="right">
+                                <h3 class="highlight">$ <span id="showVat"></span></h3>
+                            </div>
+                        </div>
+                        <div class="amount">
+                            <div class="left">
+                                <h3>Subtotal : </h3>
+                            </div>
+                            <div class="right">
+                                <h3 class="highlight">$ <span id="showSubtotal"></span></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="booking-form">
-            <h3>Explore By Bus</h3>
-            <div class="inputs">
-                <div class="input-group">
-                    <label" for="">From</label>
-                        <input class="inp-style" type="text" name="" placeholder="Dhaka">
-                </div>
-                <div class="input-group">
-                    <label" for="">From</label>
-                        <input class="inp-style" type="text" name="" placeholder="Chittagone">
-                </div>
-            </div>
-            <div class="inputs">
-                <div class="input-group">
-                    <label" for="">Departure</label>
-                        <input class="inp-style" type="date" name="">
-                </div>
-                <div class="input-group">
-                    <label for="">Return</label>
-                    <input class="inp-style" type="date" name="">
-                </div>
-            </div>
-            <div class="inputs">
-                <div class="input-group f-class">
-                    <div>
-                        <label for="">First Class ($150)</label>
-                        <input class="inp-style inp-width" id="FC-input" type="number" value="0" name="">
-                    </div>
-                    <div class="plus-minus-btn">
-                        <p id="FC-ticketAdd" onclick='TicketBtnHandel("FC-input", true)'>+</p>
-                        <p id="FC-ticketRemove" onclick='TicketBtnHandel("FC-input", false)'>-</p>
-                    </div>
-                </div>
-                <div class="input-group f-class">
-                    <div>
-                        <label for="">Economy ($100)</label>
-                        <input class="inp-style inp-width" id="EC-input" type="number" value="0" name="">
-                    </div>
-                    <div class="plus-minus-btn">
-                        <p id="EC-ticketAdd" onclick='TicketBtnHandel("EC-input", true)'>+</p>
-                        <p id="EC-ticketRemove" onclick='TicketBtnHandel("EC-input", false)'>-</p>
-                    </div>
-                </div>
-            </div>
-            <div class="calculations">
-                <div class="amount">
-                    <div class="left">
-                        <p>Subtotal</p>
-                    </div>
-                    <div class="right">
-                        <p>$ <span id="subTotal-input">500</span> </p>
-                    </div>
-                </div>
-                <div class="amount">
-                    <div class="left">
-                        <p>Charge 10% VAT</p>
-                    </div>
-                    <div class="right">
-                        <p>$ <span id="vat-input">50</span></p>
-                    </div>
-                </div>
-                <hr>
-                <div class="amount">
-                    <div class="left">
-                        <h4>Total</h4>
-                    </div>
-                    <div class="right">
-                        <p>$ <span id="total-input">550</span></p>
-                    </div>
-                </div>
-            </div>
-            <button class="btn-style">Book Now</button>
-        </div>
-    </main>
     <script>
-        // document.getElementById("FC-ticketAdd").addEventListener("click", function () {
-        //     TicketBtnHandel("FC-input", true);
-        // });
-        // document.getElementById("FC-ticketRemove").addEventListener("click", function () {
-        //     TicketBtnHandel("FC-input", false);
-        // });
-        // document.getElementById("EC-ticketAdd").addEventListener("click", function () {
-        //     TicketBtnHandel("EC-input", true);
-        // });
-        // document.getElementById("EC-ticketRemove").addEventListener("click", function () {
-        //     TicketBtnHandel("EC-input", false);
-        // });
+        document.getElementById("buyNowBtn").addEventListener("click",function(){
+            document.getElementById("booking-section").style.display = "none";
+            document.getElementById("order-section").style.display = "block";
+            var getForm = document.getElementById("from-input").value;
+            document.getElementById("from").innerText = getForm;
+            var getTo = document.getElementById("to-input").value;
+            document.getElementById("to").innerText =getTo;
+            var getDeparture = document.getElementById("departure-input").value;
+            document.getElementById("departure").innerText = getDeparture;
+            var getDeparture = document.getElementById("return-input").value;
+            document.getElementById("return").innerText = getDeparture;
+            var getDeparture = document.getElementById("total-input").innerText;
+            document.getElementById("showTotal").innerText = getDeparture;
+            var getDeparture = document.getElementById("vat-input").innerText;
+            document.getElementById("showVat").innerText = getDeparture;
+            var getDeparture = document.getElementById("subTotal-input").innerText;
+            document.getElementById("showSubtotal").innerText = getDeparture;
+        })
         function TicketBtnHandel(inputId, isIncrease) {
             const getInput = document.getElementById(inputId);
             let ticketInput = parseInt(getInput.value);

@@ -12,6 +12,7 @@ body{
     background-position: center center;
     background-attachment: scroll;
     background-size: cover;
+    min-height: 100vh;
 }
 nav{
     height: 50px;
@@ -118,8 +119,64 @@ nav ul li a:hover, a.active{
     color: #fff;
     font-weight: 500;
     background-color:  #52AF3A;
+    cursor: pointer;
 }
 .amount{
     display: flex;
     justify-content: space-between;
 }
+i{
+    font-size: 26px;
+    background-color: white;   
+}
+.add{
+    color: green;
+}
+.remove{
+    color: red;;
+}
+#order-section{
+    display: none;
+}
+#order-section .box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+.content-area{
+    width: 30%;
+    height: 520px;
+    background-color: turquoise;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px black;
+    padding: 15px;
+    color: black;
+}
+.heading-area {
+    text-align: center;
+    background-color: sandybrown;
+    border-radius: 20px;
+    height: 80px;
+}
+.content-area .heading-area h1{
+    color: red;
+}
+.content-area .heading-area h4{
+    padding: 20px 0;
+}
+.highlight{
+    color: red;
+    font-weight: bold;
+}
+.details-area{
+    margin: 20px 0;
+}
+.travel-info{
+    margin: 20px 0;
+}
+.ticket-info{
+    margin: 20px 0;
+}
+    
+
